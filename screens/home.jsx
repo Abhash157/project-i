@@ -35,38 +35,37 @@ const HomeScreen = () => {
           </View>
           <View style={styles.profileName}>Abhash Limbu</View>
         </View>
-
-        <View style={styles.profileTextBox}>
-          <View style={styles.profileSummary}>
-            <View
-              style={[
-                {
-                  width: "100%",
-                  // backgroundColor: 'red',
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                },
-                Elements.flexMe,
-              ]}
-            >
-              <Text style={[Elements.flexMe, styles.profileText]}>
-                Grade: Bachelor
-              </Text>
-              <Text style={[Elements.flexMe, styles.profileText]}>
-                Gender: Male
-              </Text>
-            </View>
-            <Text style={[Elements.flexMe, styles.profileText]}>
-              Date: 2024/01/01
-            </Text>
-            <Text style={[Elements.flexMe, styles.profileText]}>
-              Section: A
-            </Text>
-            <Text style={[Elements.flexMe, styles.profileText]}>ID: 7777</Text>
-          </View>
-        </View>
+        <View style={styles.profileName}>Abhash Limbu</View>
       </View>
 
+      <View style={styles.profileTextBox}>
+        <View style={styles.profileSummary}>
+          <View
+            style={[
+              {
+                width: "100%",
+                // backgroundColor: 'red',
+                flexDirection: "row",
+                justifyContent: "space-between",
+              },
+              Elements.flexMe,
+            ]}
+          >
+            <Text style={[Elements.flexMe, styles.profileText]}>
+              Grade: Bachelor
+            </Text>
+            <Text style={[Elements.flexMe, styles.profileText]}>
+              Gender: Male
+            </Text>
+          </View>
+          <Text style={[Elements.flexMe, styles.profileText]}>
+            Date: 2024/01/01
+          </Text>
+          <Text style={[Elements.flexMe, styles.profileText]}>Section: A</Text>
+          <Text style={[Elements.flexMe, styles.profileText]}>ID: 7777</Text>
+        </View>
+      </View>
+    </View>
       <View style={styles.optionContainer}>
         <View style={styles.PreOptions}>
           <View style={styles.PreOptionsBox}>
@@ -171,38 +170,39 @@ const HomeScreen = () => {
           </View>
         </View>
       </View>
+    </View>
 
-      <View style={styles.footer}>
-        <View
-          style={[
-            styles.footerCollege,
-            {
-              flex: 5,
-            },
-          ]}
-        >
-          <Image />
-          <Text style={styles.footerCollegeText}>Shahid Smarak College</Text>
-        </View>
-        <View
-          style={[
-            styles.footerCollege,
-            {
-              flex: 2,
-            },
-          ]}
-        >
-          <Image />
-          <TouchableHighlight>
-            <View>Leave Application</View>
-          </TouchableHighlight>
-        </View>
+    <View style={styles.footer}>
+      <View
+        style={[
+          styles.footerCollege,
+          {
+            flex: 5,
+          },
+        ]}
+      >
+        <Image />
+        <Text style={styles.footerCollegeText}>Shahid Smarak College</Text>
+      </View>
+      <View
+        style={[
+          styles.footerCollege,
+          {
+            flex: 2,
+          },
+        ]}
+      >
+        <Image />
+        <TouchableHighlight>
+          <View>Leave Application</View>
+        </TouchableHighlight>
       </View>
     </SafeAreaView>
   );
 };
 
 const bigCircleSize = 195;
+
 const circleSize = 110;
 const circleMinus = (bigCircleSize - circleSize) / 2;
 
