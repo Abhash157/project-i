@@ -10,9 +10,9 @@ import Login from "./screens/log";
 
 const Stack = createStackNavigator();
 
-const HomeScreen = ({ navigation }) => <Home />;
-
-const LoginPage = ({ navigation }) => <Login />;
+homesetup
+// const HomeScreen = ({ navigation }) => <Home />;
+// const LoginPage = ({ navigation }) => <Login />;
 
 export default function App() {
   return (
