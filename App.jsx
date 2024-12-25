@@ -5,14 +5,13 @@ import {
   NavigationIndependentTree,
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "./screens/home";
-import Login from "./screens/log";
+import HomeScreen from "./screens/home";
+import LoginPage from "./screens/log";
 
 const Stack = createStackNavigator();
 
-const HomeScreen = ({ navigation }) => <Home />;
-
-const LoginPage = ({ navigation }) => <Login />;
+// const HomeScreen = ({ navigation }) => <Home />;
+// const LoginPage = ({ navigation }) => <Login />;
 
 export default function App() {
   return (
