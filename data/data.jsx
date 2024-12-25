@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Data({ onRegister }) {  // Ensure onRegister is passed as prop
+function Data({ onRegister }) {
   const [formData, setFormData] = useState({
     id: "",
     firstName: "",
@@ -26,8 +26,7 @@ function Data({ onRegister }) {  // Ensure onRegister is passed as prop
       return;
     }
 
-    // Call onRegister prop passed from parent component
-    onRegister(formData);  // This should be called when form is submitted
+    onRegister(formData);
 
     setFormData({
       id: "",

@@ -7,7 +7,7 @@ import Data from "../../data/data"
 import Backs from "../../data/backs"
 
 
-AppRegistry.registerComponent(appName, () => CrudApp); // Register App as the main component
+AppRegistry.registerComponent(appName, () => App); // Register App as the main component
 
 export default () => {
    //  return <Data />
