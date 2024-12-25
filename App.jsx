@@ -4,43 +4,24 @@ import {
   NavigationIndependentTree,
 } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "./screens/home";
-import Login from "./screens/log";
+import HomeScreen from "./screens/home";
+import LoginPage from "./screens/log";
 import React, { useState } from "react";
-import Data from "./data/data";
-import Backs from "./data/backs";
+import DataServer from "./data/register"
+import DataTable from "./data/dataTable"
 
-function Apps() {
-  const [usersData, setUsersData] = useState([]);
+ const Stack = createStackNavigator();
 
-  const handleRegister = (newUser) => {
-    setUsersData((prevUsers) => [...prevUsers, newUser]);
-  };
+ export default function App() {
+   return (
+     <NavigationIndependentTree>
+       <Stack.Navigator initialRouteName="Data">
+         <Stack.Screen name="Login" component={LoginPage} />
+         <Stack.Screen name="Home" component={HomeScreen}/>
+         <Stack.Screen name="Data" component={DataServer} />
+         <Stack.Screen name="Table" component={DataTable} />
+       </Stack.Navigator>
+     </NavigationIndependentTree>
+   );
+ }
 
-  return (
-    <div>
-      <Data onRegister={handleRegister} />
-      <Backs data={usersData} />
-    </div>
-  );
-}
-
-export default Apps;
-
-
-//  const Stack = createStackNavigator();
-
-//  const HomeScreen = ({ navigation }) => <Home />;
-
-//  const LoginPage = ({ navigation }) => <Login />;
-
-//  export default function App() {
-//    return (
-//      <NavigationIndependentTree>
-//        <Stack.Navigator initialRouteName="Home">
-//          <Stack.Screen name="Login" component={LoginPage} />
-//          <Stack.Screen name="Home" component={HomeScreen} />
-//        </Stack.Navigator>
-//      </NavigationIndependentTree>
-//    );
-//  }

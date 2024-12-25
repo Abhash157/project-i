@@ -10,6 +10,6 @@ import Backs from "../../data/backs"
 AppRegistry.registerComponent(appName, () => App); // Register App as the main component
 
 export default () => {
-   //  return <Data />
- return <App />
+//  return <Data />
+   return <App/>
 }
