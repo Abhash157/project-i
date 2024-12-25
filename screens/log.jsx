@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Image, StyleSheet, Text, TextInput } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import App from "../App";
 import HomeScreen from "./home";
-const LoginPage = () => {
+const LoginPage = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View
@@ -86,7 +87,17 @@ const LoginPage = () => {
 
         <TouchableOpacity
           style={styles.loginButton}
-          // onPress={navigation.navigate(HomeScreen)}
+          onPress={() => {
+            let email = document.getElementById("email");
+            let password = document.getElementById("password");
+            if (email.value == "admin" && password.value == "admin") {
+              navigation.navigate("Home");
+            } else if (email.value == "" && password.value == "") {
+              alert("Value cannot be blank");
+            } else {
+              alert("Wrong email or password");
+            }
+          }}
         >
           Login
         </TouchableOpacity>
@@ -95,6 +106,7 @@ const LoginPage = () => {
   );
 };
 
+const login = () => {};
 const colors = {
   primary: "#aa8d49",
   secondary: "#07294d",
