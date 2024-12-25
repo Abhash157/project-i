@@ -1,6 +1,6 @@
+import React from 'react'
 import HomeScreen from '../../screens/home'
-import LoginScreen from '../../screens/log'
-const BASE_URL = 'http://localhost:5000';
+import LoginPage from '../../screens/log'
 
 export default () => {
   return (
