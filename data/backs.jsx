@@ -1,16 +1,6 @@
 import React from "react";
 
-function Backs({ data }) {
-  const handleDelete = (id) => {
-    // Handle deletion of a user
-    alert(`Deleting user with ID: ${id}`);
-  };
-
-  const handleUpdate = (id) => {
-    // Handle update of a user
-    alert(`Updating user with ID: ${id}`);
-  };
-
+function Backs({ data, onDelete, onUpdate }) {
   return (
     <div
       style={{
@@ -54,7 +44,7 @@ function Backs({ data }) {
               <td style={{ padding: "12px", textAlign: "center" }}>{user.gender}</td>
               <td style={{ padding: "12px", textAlign: "center" }}>
                 <button
-                  onClick={() => handleUpdate(user.id)}
+                  onClick={() => onUpdate(user.id)}
                   style={{
                     backgroundColor: "#ffcc00",
                     color: "#003366",
@@ -68,7 +58,7 @@ function Backs({ data }) {
                   Update
                 </button>
                 <button
-                  onClick={() => handleDelete(user.id)}
+                  onClick={() => onDelete(user.id)}
                   style={{
                     backgroundColor: "#ff3300",
                     color: "#003366",

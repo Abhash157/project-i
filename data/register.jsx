@@ -10,16 +10,15 @@ function Apps({navigation}) {
   const [usersData, setUsersData] = useState([]);
 
   const handleRegister = (newUser) => {
-    setUsersData((prevUsers) => [...prevUsers, newUser]);
+    const updatedUsers = [...usersData, newUser];
+    setUsersData(updatedUsers);
+    navigation.navigate("Home", {usersData: updatedUsers})
   };
 
   return (
     <ScrollView>
       {/* <Backs data={usersData} /> */}
-      <Data onRegister={()=>{
-        handleRegister()
-        navigation.navigate("Table")
-      }} />
+      <Data onRegister={handleRegister} />
     </ScrollView>
   );
 }
