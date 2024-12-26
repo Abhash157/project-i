@@ -6,13 +6,86 @@ import {
   Image,
   TouchableHighlight,
   Component,
+  Animated,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Elements } from "@/constants/Elements";
 import { Colors } from "@/constants/Colors";
 
 const HomeScreen = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex2, setHoveredIndex2] = useState(null);
+  const [hoveredIndex3, setHoveredIndex3] = useState(null);
+  const buttons = [
+    {
+      id: 1,
+      text: "Statement",
+      image: require("../assets/images/statement.png"),
+    },
+    {
+      id: 2,
+      text: "Attendance",
+      image: require("../assets/images/attendance.png"),
+    },
+    {
+      id: 3,
+      text: "News",
+      image: require("../assets/images/news.png"),
+    },
+    {
+      id: 4,
+      text: "Homework",
+      image: require("../assets/images/homework.png"),
+      customStyle: {
+        height: "70vh",
+        width: "70vw",
+      },
+    },
+  ];
+  const buttons2 = [
+    {
+      id: 5,
+      text: "Assignment",
+      image: require("../assets/images/assignments.png"),
+    },
+    {
+      id: 6,
+      text: "Library",
+      image: require("../assets/images/library.png"),
+    },
+    {
+      id: 7,
+      text: "Routine",
+      image: require("../assets/images/routine.png"),
+    },
+    {
+      id: 8,
+      text: "Lesson Plans",
+      image: require("../assets/images/lessons.png"),
+    },
+  ];
+  const buttons3 = [
+    {
+      id: 9,
+      text: "Teacher",
+      image: require("../assets/images/teachers.png"),
+    },
+    {
+      id: 10,
+      text: "Exam Routine",
+      image: require("../assets/images/exam-routine.png"),
+    },
+    {
+      id: 11,
+      text: "Results",
+      image: require("../assets/images/results.png"),
+    },
+    {
+      id: 12,
+      text: "Calendar",
+      image: require("../assets/images/Calendar.png"),
+    },
+  ];
   return (
     <SafeAreaView style={[styles.container, Elements.centered]}>
       <SafeAreaView style={styles.background}>
@@ -35,174 +108,130 @@ const HomeScreen = () => {
           </View>
           <View style={styles.profileName}>Abhash Limbu</View>
         </View>
-        <View style={styles.profileName}>Abhash Limbu</View>
-      </View>
 
-      <View style={styles.profileTextBox}>
-        <View style={styles.profileSummary}>
-          <View
-            style={[
-              {
-                width: "100%",
-                // backgroundColor: 'red',
-                flexDirection: "row",
-                justifyContent: "space-between",
-              },
-              Elements.flexMe,
-            ]}
-          >
+        <View style={styles.profileTextBox}>
+          <View style={styles.profileSummary}>
+            <View
+              style={[
+                {
+                  width: "100%",
+                  // backgroundColor: 'red',
+                  flexDirection: "row",
+
+                  justifyContent: "space-between",
+                },
+                Elements.flexMe,
+              ]}
+            >
+              <Text style={[Elements.flexMe, styles.profileText]}>
+                Grade: Bachelor
+              </Text>
+              <Text style={[Elements.flexMe, styles.profileText]}>
+                Gender: Male
+              </Text>
+            </View>
             <Text style={[Elements.flexMe, styles.profileText]}>
-              Grade: Bachelor
+              Date: 2024/01/01
             </Text>
             <Text style={[Elements.flexMe, styles.profileText]}>
-              Gender: Male
+              Section: A
             </Text>
+            <Text style={[Elements.flexMe, styles.profileText]}>ID: 7777</Text>
           </View>
-          <Text style={[Elements.flexMe, styles.profileText]}>
-            Date: 2024/01/01
-          </Text>
-          <Text style={[Elements.flexMe, styles.profileText]}>Section: A</Text>
-          <Text style={[Elements.flexMe, styles.profileText]}>ID: 7777</Text>
         </View>
       </View>
-    </View>
+
       <View style={styles.optionContainer}>
         <View style={styles.PreOptions}>
           <View style={styles.PreOptionsBox}>
             <View style={styles.optionsRow}>
-              <View style={styles.optionsButton}>
-                <Image
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  style={[styles.btnImage, isHovered && styles.hoveredImage]}
-                  source={require("../assets/images/homework.png")}
-                />
-                <Text style={styles.optionsText}>Statement</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                  style={[styles.btnImage, isHovered && styles.hoveredImage]}
-                  source={require("../assets/images/attendance.png")}
-                />
-                <Text style={styles.optionsText}>Attendance</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
-                />
-                <Text style={styles.optionsText}>News</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
-                />
-                <Text style={styles.optionsText}>Homework</Text>
-              </View>
+              {buttons.map((button, index) => (
+                <View key={button.id} style={styles.optionsButton}>
+                  <Image
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    style={[
+                      styles.btnImage,
+                      hoveredIndex === index && styles.hoveredImage,
+                    ]}
+                    source={button.image}
+                  />
+                  <Text style={styles.optionsText}> {button.text}</Text>
+                </View>
+              ))}
             </View>
           </View>
         </View>
+
         <View style={styles.options}>
           <View style={styles.optionsBox}>
             <View style={styles.optionsRow}>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/assignments.png")}
-                />
-                <Text style={styles.optionsText}>Assignments</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/library.png")}
-                />
-                <Text style={styles.optionsText}>Library</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
-                />
-                <Text style={styles.optionsText}>Routine</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/lessons.png")}
-                />
-                <Text style={styles.optionsText}>Lesson Plans</Text>
-              </View>
+              {buttons2.map((button, index) => (
+                <View key={button.id} style={styles.optionsButton}>
+                  <Image
+                    onMouseEnter={() => setHoveredIndex2(index)}
+                    onMouseLeave={() => setHoveredIndex2(null)}
+                    style={[
+                      styles.btnImage,
+                      hoveredIndex2 === index && styles.hoveredImage,
+                    ]}
+                    source={button.image}
+                  />
+                  <Text style={styles.optionsText}> {button.text}</Text>
+                </View>
+              ))}
             </View>
             <View style={styles.optionsRow}>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
-                />
-                <Text style={styles.optionsText}>Teaching</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
-                />
-                <Text style={styles.optionsText}>Exam Routine</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
-                />
-                <Text style={styles.optionsText}>Results</Text>
-              </View>
-              <View style={styles.optionsButton}>
-                <Image
-                  style={styles.btnImage}
-                  source={require("../assets/images/Calendar.png")}
-                />
-                <Text style={styles.optionsText}>Calender</Text>
-              </View>
+              {buttons3.map((button, index) => (
+                <View key={button.id} style={styles.optionsButton}>
+                  <Image
+                    onMouseEnter={() => setHoveredIndex3(index)}
+                    onMouseLeave={() => setHoveredIndex3(null)}
+                    style={[
+                      styles.btnImage,
+                      hoveredIndex3 === index && styles.hoveredImage,
+                    ]}
+                    source={button.image}
+                  />
+                  <Text style={styles.optionsText}> {button.text}</Text>
+                </View>
+              ))}
             </View>
           </View>
         </View>
       </View>
-    </View>
 
-    <View style={styles.footer}>
-      <View
-        style={[
-          styles.footerCollege,
-          {
-            flex: 5,
-          },
-        ]}
-      >
-        <Image />
-        <Text style={styles.footerCollegeText}>Shahid Smarak College</Text>
-      </View>
-      <View
-        style={[
-          styles.footerCollege,
-          {
-            flex: 2,
-          },
-        ]}
-      >
-        <Image />
-        <TouchableHighlight>
-          <View>Leave Application</View>
-        </TouchableHighlight>
+      <View style={styles.footer}>
+        <View
+          style={[
+            styles.footerCollege,
+            {
+              flex: 5,
+            },
+          ]}
+        >
+          <Image />
+          <Text style={styles.footerCollegeText}>Shahid Smarak College</Text>
+        </View>
+        <View
+          style={[
+            styles.footerCollege,
+            {
+              flex: 2,
+            },
+          ]}
+        >
+          <Image />
+          <TouchableHighlight>
+            <View>Leave Application</View>
+          </TouchableHighlight>
+        </View>
       </View>
     </SafeAreaView>
   );
 };
 
 const bigCircleSize = 195;
-
 const circleSize = 110;
 const circleMinus = (bigCircleSize - circleSize) / 2;
 
@@ -327,7 +356,7 @@ const styles = StyleSheet.create({
     height: "100px",
     width: "90px",
     margin: "auto",
-    // backgroundColor: 'green',
+    // backgroundColor: "green",
     border: "2px " + Colors.light.secondaryLow + " solid",
     borderRadius: "15px",
     justifyContent: "center",
@@ -338,6 +367,7 @@ const styles = StyleSheet.create({
     bottom: "-18px",
     width: "90px",
     textAlign: "center",
+    // backgroundColor: "blue",
   },
   btnImage: {
     height: "100%",
