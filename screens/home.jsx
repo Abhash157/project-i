@@ -35,37 +35,38 @@ const HomeScreen = () => {
           </View>
           <View style={styles.profileName}>Abhash Limbu</View>
         </View>
-        <View style={styles.profileName}>Abhash Limbu</View>
-      </View>
 
-      <View style={styles.profileTextBox}>
-        <View style={styles.profileSummary}>
-          <View
-            style={[
-              {
-                width: "100%",
-                // backgroundColor: 'red',
-                flexDirection: "row",
-                justifyContent: "space-between",
-              },
-              Elements.flexMe,
-            ]}
-          >
+        <View style={styles.profileTextBox}>
+          <View style={styles.profileSummary}>
+            <View
+              style={[
+                {
+                  width: "100%",
+                  // backgroundColor: 'red',
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                },
+                Elements.flexMe,
+              ]}
+            >
+              <Text style={[Elements.flexMe, styles.profileText]}>
+                Grade: Bachelor
+              </Text>
+              <Text style={[Elements.flexMe, styles.profileText]}>
+                Gender: Male
+              </Text>
+            </View>
             <Text style={[Elements.flexMe, styles.profileText]}>
-              Grade: Bachelor
+              Date: 2024/01/01
             </Text>
             <Text style={[Elements.flexMe, styles.profileText]}>
-              Gender: Male
+              Section: A
             </Text>
+            <Text style={[Elements.flexMe, styles.profileText]}>ID: 7777</Text>
           </View>
-          <Text style={[Elements.flexMe, styles.profileText]}>
-            Date: 2024/01/01
-          </Text>
-          <Text style={[Elements.flexMe, styles.profileText]}>Section: A</Text>
-          <Text style={[Elements.flexMe, styles.profileText]}>ID: 7777</Text>
         </View>
       </View>
-    </View>
+
       <View style={styles.optionContainer}>
         <View style={styles.PreOptions}>
           <View style={styles.PreOptionsBox}>
@@ -75,7 +76,7 @@ const HomeScreen = () => {
                   onMouseEnter={() => setIsHovered(true)}
                   onMouseLeave={() => setIsHovered(false)}
                   style={[styles.btnImage, isHovered && styles.hoveredImage]}
-                  source={require("../assets/images/homework.png")}
+                  source={require("../assets/images/statement.png")}
                 />
                 <Text style={styles.optionsText}>Statement</Text>
               </View>
@@ -91,7 +92,7 @@ const HomeScreen = () => {
               <View style={styles.optionsButton}>
                 <Image
                   style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
+                  source={require("../assets/images/news.png")}
                 />
                 <Text style={styles.optionsText}>News</Text>
               </View>
@@ -125,7 +126,7 @@ const HomeScreen = () => {
               <View style={styles.optionsButton}>
                 <Image
                   style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
+                  source={require("../assets/images/routine.png")}
                 />
                 <Text style={styles.optionsText}>Routine</Text>
               </View>
@@ -141,21 +142,21 @@ const HomeScreen = () => {
               <View style={styles.optionsButton}>
                 <Image
                   style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
+                  source={require("../assets/images/teachers.png")}
                 />
-                <Text style={styles.optionsText}>Teaching</Text>
+                <Text style={styles.optionsText}>Teachers</Text>
               </View>
               <View style={styles.optionsButton}>
                 <Image
                   style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
+                  source={require("../assets/images/exam-routine.png")}
                 />
                 <Text style={styles.optionsText}>Exam Routine</Text>
               </View>
               <View style={styles.optionsButton}>
                 <Image
                   style={styles.btnImage}
-                  source={require("../assets/images/homework.png")}
+                  source={require("../assets/images/results.png")}
                 />
                 <Text style={styles.optionsText}>Results</Text>
               </View>
@@ -170,39 +171,38 @@ const HomeScreen = () => {
           </View>
         </View>
       </View>
-    </View>
 
-    <View style={styles.footer}>
-      <View
-        style={[
-          styles.footerCollege,
-          {
-            flex: 5,
-          },
-        ]}
-      >
-        <Image />
-        <Text style={styles.footerCollegeText}>Shahid Smarak College</Text>
-      </View>
-      <View
-        style={[
-          styles.footerCollege,
-          {
-            flex: 2,
-          },
-        ]}
-      >
-        <Image />
-        <TouchableHighlight>
-          <View>Leave Application</View>
-        </TouchableHighlight>
+      <View style={styles.footer}>
+        <View
+          style={[
+            styles.footerCollege,
+            {
+              flex: 5,
+            },
+          ]}
+        >
+          <Image />
+          <Text style={styles.footerCollegeText}>Shahid Smarak College</Text>
+        </View>
+        <View
+          style={[
+            styles.footerCollege,
+            {
+              flex: 2,
+            },
+          ]}
+        >
+          <Image />
+          <TouchableHighlight>
+            <View>Leave Application</View>
+          </TouchableHighlight>
+        </View>
       </View>
     </SafeAreaView>
   );
 };
 
 const bigCircleSize = 195;
-
 const circleSize = 110;
 const circleMinus = (bigCircleSize - circleSize) / 2;
 
